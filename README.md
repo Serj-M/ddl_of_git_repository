@@ -1,1 +1,1 @@
-# Relational model of a Git-repository rot Postrges
+# Relational model of a Git-repository for Postrges
