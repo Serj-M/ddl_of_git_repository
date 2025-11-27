@@ -4,7 +4,7 @@ WITH first_commit_year AS (
     SELECT EXTRACT(YEAR FROM MIN(c.commit_created_at)) AS start_year
     FROM commits c
     JOIN file_changes fc ON c.id = fc.commit_id  -- Присоединяем информацию об изменяемых файлов в коммите
-    WHERE (fc.file_path LIKE 'app/utils/excel_file_generator%' OR fc.file_path LIKE 'app/utils/simple_table_excel%') AND c.repo_id = 30
+    WHERE (fc.file_path LIKE '***/***/***tor%' OR fc.file_path LIKE '***/***/***cel%') AND c.repo_id = 30
 ),
 commits_with_first_parent AS (
     SELECT DISTINCT
@@ -22,7 +22,7 @@ commits_with_first_parent AS (
     JOIN file_changes fc ON c.id = fc.commit_id
     CROSS JOIN first_commit_year fcy   -- Присоединяем найденный первый год
     WHERE
-        (fc.file_path LIKE 'app/utils/excel_file_generator%' OR fc.file_path LIKE 'app/utils/simple_table_excel%') AND c.repo_id = 30
+        (fc.file_path LIKE '***/***/***tor%' OR fc.file_path LIKE '***/***/***cel%') AND c.repo_id = 30
         AND EXTRACT(YEAR FROM c.commit_created_at) = fcy.start_year   -- Фильтруем по году
 )
 SELECT
