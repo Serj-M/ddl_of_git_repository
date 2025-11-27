@@ -6,7 +6,7 @@ target_commits AS (
     FROM commits c
     JOIN file_changes fc ON c.id = fc.commit_id  -- Присоединяем информацию об изменяемых файлов в коммите
      -- Условие по пути к файлу и репозиторию
-    WHERE (fc.file_path LIKE 'app/utils/excel_file_generator%' OR fc.file_path LIKE 'app/utils/simple_table_excel%') AND c.repo_id = 30
+    WHERE (fc.file_path LIKE '***/***/***tor%' OR fc.file_path LIKE '***/***/***cel%') AND c.repo_id = 30
 ),
 -- 2. Определяем год первого коммита среди отфильтрованных в CTE target_commits
 first_commit_year AS (
